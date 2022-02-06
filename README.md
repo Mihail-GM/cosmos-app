@@ -1,4 +1,6 @@
 # COSMOS APP
+Live demo: https://cosmos-app-e27e4.web.app
+
 Using Vue.js 2, TS, Vuetify, Composition API, Firebase for authentication and saving favorites.
 
 You can register account or just use this user for login:

@@ -14,7 +14,7 @@
 					<h4 class="text-h4">Cosmos App</h4> <br>
 				</v-card-title>
 
-				<v-card-subtitle class="d-flex justify-center">q
+				<v-card-subtitle class="d-flex justify-center">
 					<span> Register </span>
 				</v-card-subtitle>
 

@@ -1,4 +1,4 @@
-# cosmos-app
+# COSMOS APP
 
 ## Project setup
 ```

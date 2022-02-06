@@ -12,7 +12,6 @@
 			<v-card>
 				<v-card-title class="d-flex justify-center">
 					<h4 class="text-h4">Cosmos App</h4> <br>
-
 				</v-card-title>
 
 				<v-card-subtitle class="d-flex justify-center">
@@ -65,7 +64,7 @@
 
 <script lang="ts">
 	import { defineComponent, ref } from "@vue/composition-api";
-	import AuthModule from '@/store/modules/auth'
+	import AuthModule from '@/store/modules/Auth';
 	import { useRoute, useRouter } from 'vue2-helpers/vue-router';
 	import SnackbarModule from "@/store/modules/Snackbar";
 
@@ -100,7 +99,6 @@
 				submit,
 			}
 		}
-
 	});
 </script>
 

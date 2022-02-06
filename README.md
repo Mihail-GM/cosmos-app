@@ -1,4 +1,11 @@
 # COSMOS APP
+Using Vue.js 2, TS, Vuetify, Composition API, Firebase for authentication and saving favorites.
+
+You can register account or just us this user for login:
+
+email: mihail6146@gmail.com
+
+password: test1234
 
 ## Project setup
 ```

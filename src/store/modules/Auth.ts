@@ -2,6 +2,7 @@
 import { Action, getModule, Module, Mutation, VuexModule } from 'vuex-module-decorators';
 import Vue from "vue";
 import Vuex from "vuex";
+import $axios from "@/plugins/axios";
 
 Vue.use(Vuex);
 const store = new Vuex.Store({});
@@ -9,14 +10,12 @@ const store = new Vuex.Store({});
 let timer: number | undefined;
 const keyFirebase = 'AIzaSyAXLmbbZWfnUg-lrZYeqlSLng6BWFc_RMg'
 
-import $axios from "@/plugins/axios";
-
 // @ts-ignore
 @Module({ name: "Auth", dynamic: true, namespaced: true, store })
 class Auth extends VuexModule {
-	userId = null;
-	token = null;
-	didAutoLogout = false;
+	userId: string | null = null;
+	token: string | null = null;
+	didAutoLogout: boolean = false;
 
 	get getUserId() {
 		return this.userId;
@@ -35,7 +34,7 @@ class Auth extends VuexModule {
 	}
 
 	@Mutation
-	private setUser(data: { token: any; userId: any; }) {
+	private setUser(data: { token: string; userId: string; }) {
 		this.token = data.token;
 		this.userId = data.userId;
 		this.didAutoLogout = false;
@@ -47,7 +46,7 @@ class Auth extends VuexModule {
 	}
 
 	@Action
-	public async login(data: { email: any; password: any; }): Promise<void> {
+	public async login(data: { email: string; password: string; }): Promise<void> {
 		return this.context.dispatch('auth', {
 			...data,
 			mode: 'login'
@@ -63,13 +62,11 @@ class Auth extends VuexModule {
 	}
 
 	@Action
-	public async auth(data: { mode: any; email: any; password: any; }) {
+	public async auth(data: { mode: string; email: string; password: string; }) {
 		const mode = data.mode;
-		let url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${keyFirebase}`;
-
-		if (mode === 'signup') {
-			url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${keyFirebase}`;
-		}
+		let url = mode === 'signup' ?
+			`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${keyFirebase}` :
+			`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${keyFirebase}`;
 
 		let dataObject = {
 			email: data.email,
@@ -79,7 +76,6 @@ class Auth extends VuexModule {
 
 		const response = await $axios.post(url, dataObject)
 			.then(res => {
-
 				return res;
 			});
 

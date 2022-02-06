@@ -12,7 +12,7 @@ import MostRecentEnhancedEarthImage from "@/views/MostRecentEnhancedEarthImage.v
 import Profile from "@/views/Profile.vue";
 import PageNotFound from "@/views/PageNotFound.vue";
 
-import AuthModule from '@/store/modules/auth'
+import AuthModule from "@/store/modules/Auth"
 
 // @ts-ignore
 Vue.use(VueRouter);
@@ -73,13 +73,14 @@ const routes: Array<RouteConfig> = [
 
 	{ path: '/404', component: PageNotFound },
 	{ path: '*', redirect: '/404' },
-]
+];
+
 // @ts-ignore
 const router = new VueRouter({
 	mode: 'history',
 	base: process.env.BASE_URL,
 	routes
-})
+});
 
 router.beforeEach((to: any, _: any, next: any) => {
 	AuthModule.tryLogin();
@@ -91,6 +92,6 @@ router.beforeEach((to: any, _: any, next: any) => {
 	} else {
 		next();
 	}
-})
+});
 
-export default router
+export default router;

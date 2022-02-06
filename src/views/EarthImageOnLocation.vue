@@ -39,7 +39,7 @@
 
 <script lang="ts">
 	import { defineComponent, ref, onBeforeMount, computed } from "@vue/composition-api";
-	import CordsModel from "@/models/interface/CordsModel";
+	import CoordsModel from "@/models/interface/CoordsModel";
 	import 'viewerjs/dist/viewer.css'
 	import { component as Viewer } from "v-viewer"
 
@@ -51,13 +51,13 @@
 		},
 
 		setup(props) {
-			let coords = ref<CordsModel>({
+			let coords = ref<CoordsModel>({
 				latitude: '',
 				longitude: ''
 			});
 
 			let date = ref<string>('2020-08-30');
-			let images = ref<string[]>([])
+			let images = ref<string[]>([]);
 
 			const getUserLocation = (() => {
 				return navigator.geolocation.getCurrentPosition((position) => {
@@ -70,11 +70,11 @@
 						console.log(error.message);
 					},
 				)
-			})
+			});
 
 			let urlImage = computed(() => {
 				return `https://api.nasa.gov/planetary/earth/imagery?lon=${coords.value.longitude}&lat=${coords.value.latitude}&dim=0.15&date=${date.value}&api_key=WoIVOrcpHcL5xH373gGDg9dKwQIkL0DJLuSbLeot`;
-			})
+			});
 
 			onBeforeMount(async () => {
 				await getUserLocation();

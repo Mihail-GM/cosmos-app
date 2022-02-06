@@ -37,7 +37,7 @@
 <script>
 	import {defineComponent, ref} from "@vue/composition-api";
 	import TheLayoutWrapMenuList from "./TheLayoutWrapMenuList";
-	import AuthModule from '@/store/modules/auth'
+	import AuthModule from '@/store/modules/Auth'
 	import {useRoute, useRouter} from "vue2-helpers/vue-router";
 
 	const route = useRoute();

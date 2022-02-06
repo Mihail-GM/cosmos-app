@@ -7,7 +7,6 @@ class FavoriteService {
 	getAllFavorites() {
 		return $axios.get(`${baseURL}/favorites.json`)
 			.then(res => {
-
 				return res.data;
 			})
 	}

@@ -141,7 +141,7 @@
 
 				NasaService.getAstronomyPictureOfTheDay(date)
 					.then((res) => {
-						isLoading.value = false
+						isLoading.value = false;
 						astronomyPictureOfTheDayURL.value = res.url;
 
 						if (astronomyPictureOfTheDayURL.value?.includes('youtube.com')) {
@@ -155,7 +155,7 @@
 
 			watch(date, (newValue) => {
 				isImageInFavorite.value = false;
-				getAstronomyPictureOfTheDay(newValue.toString())
+				getAstronomyPictureOfTheDay(newValue.toString());
 			});
 
 			const saveToFavorite = (() => {
@@ -167,7 +167,7 @@
 					})
 					.catch(() => {
 						SnackbarModule.showSnackbarMessage("Something went wrong. Image not saved");
-					})
+					});
 			});
 
 			const removeFromFavorites = (() => {

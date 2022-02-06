@@ -57,8 +57,8 @@
 
 <script lang="ts">
 	import { defineComponent, onBeforeMount, computed } from "@vue/composition-api";
-	import FavoriteModule from "@/store/modules/Favorites"
-	import FavoritesService from "@/services/favorites.services"
+	import FavoriteModule from "@/store/modules/Favorites";
+	import FavoritesService from "@/services/favorites.services";
 	import FavoritesModel from "@/models/interface/FavoritesModel";
 	import SnackbarModule from "@/store/modules/Snackbar";
 

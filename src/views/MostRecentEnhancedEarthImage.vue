@@ -105,7 +105,7 @@
 				}
 
 				return tempDates;
-			}
+			};
 
 			const getArraysIntersection = (arrayWithSelectedDates: string[], availableDates: string[]): string[] => {
 				let setA = new Set(arrayWithSelectedDates);
@@ -113,16 +113,16 @@
 				let intersection = new Set([...setA].filter(x => setB.has(x)));
 
 				return Array.from(intersection);
-			}
+			};
 
 			const createURLForTheImage = (date: string, id: string): string => {
-				return `https://api.nasa.gov/EPIC/archive/enhanced/${date}/png/${id}.png?api_key=WoIVOrcpHcL5xH373gGDg9dKwQIkL0DJLuSbLeot`
-			}
+				return `https://api.nasa.gov/EPIC/archive/enhanced/${date}/png/${id}.png?api_key=WoIVOrcpHcL5xH373gGDg9dKwQIkL0DJLuSbLeot`;
+			};
 
 			const getMostRecentEnhancedImage = ((date: string = "") => {
 				return NasaService.getMostRecentEnhancedImage(date)
 					.then((res) => {
-						return res[0]
+						return res[0];
 					});
 			});
 
@@ -144,7 +144,7 @@
 
 			watch(datesInput, (newValue) => {
 				if (newValue?.length === 2) {
-					showHeader.value = false
+					showHeader.value = false;
 					isLoading.value = true;
 
 					try {
@@ -163,10 +163,10 @@
 					.then((res) => {
 						availableDatesForImages.value = res.reduce((acc: any, value: any) => {
 							const { date } = value;
-							acc.push(date)
+							acc.push(date);
 							return acc;
 						}, []);
-						return res
+						return res;
 					});
 			});
 

@@ -13,7 +13,6 @@
 			<v-card>
 				<v-card-title class="d-flex justify-center">
 					<h4 class="text-h4">Cosmos App</h4> <br>
-
 				</v-card-title>
 
 				<v-card-subtitle class="d-flex justify-center">
@@ -67,7 +66,7 @@
 
 <script lang="ts">
 	import { defineComponent, ref } from "@vue/composition-api";
-	import AuthModule from "@/store/modules/auth";
+	import AuthModule from "@/store/modules/Auth";
 	import { useRouter } from 'vue2-helpers/vue-router';
 	import SnackbarModule from "@/store/modules/Snackbar";
 
@@ -87,7 +86,7 @@
 					await router.push('/');
 				} catch (err) {
 					await SnackbarModule.showSnackbarMessage(
-						err.message || 'Failed to authenticate, try later.'
+						err.message || 'Failed to authenticate, try again later.'
 					);
 				}
 			});
@@ -99,9 +98,7 @@
 				submit,
 			}
 		}
-
 	});
-
 </script>
 
 <style lang="scss" scoped>

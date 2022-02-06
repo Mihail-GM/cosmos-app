@@ -1,7 +1,7 @@
 # COSMOS APP
 Using Vue.js 2, TS, Vuetify, Composition API, Firebase for authentication and saving favorites.
 
-You can register account or just us this user for login:
+You can register account or just use this user for login:
 
 email: mihail6146@gmail.com
 
@@ -31,6 +31,3 @@ npm run test:unit
 ```
 npm run test:e2e
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
